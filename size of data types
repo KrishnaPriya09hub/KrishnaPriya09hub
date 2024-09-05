@@ -1,0 +1,12 @@
+#include<stdio.h>
+int main()
+{
+   int sizeint;
+   float sizefloat;
+   double sizedouble;
+   char sizechar;
+   printf("%d\n",sizeof(sizeint));
+   printf("%d\n",sizeof(sizefloat));
+   printf("%d\n",sizeof(sizedouble));
+    printf("%d\n",sizeof(sizechar));
+}
