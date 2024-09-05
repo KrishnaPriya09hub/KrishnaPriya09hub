@@ -1,0 +1,12 @@
+#include<stdio.h>
+int main()
+{
+    int a,b;
+    printf("enter 2 no:");
+    scanf("%d%d",&a,&b);
+    printf("%dadd\t",a+b);
+    printf("%dsub\t",a-b);
+    printf("%dmul\t",a*b);
+    printf("%ddiv rem\t",a%b);
+    printf("%ddiv quo\t",a/b);
+}
