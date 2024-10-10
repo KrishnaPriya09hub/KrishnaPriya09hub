@@ -1,0 +1,62 @@
+#include <stdio.h>
+
+void mergeArrays(int array1[], int size1, int array2[], int size2) {
+    int mergedArray[size1 + size2];
+    int i, j, k;
+
+    // Merge arrays
+    for (i = 0, j = 0, k = 0; i < size1 && j < size2; k++) {
+        if (array1[i] <= array2[j]) {
+            mergedArray[k] = array1[i];
+            i++;
+        } else {
+            mergedArray[k] = array2[j];
+            j++;
+        }
+    }
+
+    // Copy remaining elements
+    while (i < size1) {
+        mergedArray[k] = array1[i];
+        i++;
+        k++;
+    }
+    while (j < size2) {
+        mergedArray[k] = array2[j];
+        j++;
+        k++;
+    }
+
+    // Print merged array
+    printf("Merged array: ");
+    for (k = 0; k < size1 + size2; k++) {
+        printf("%d ", mergedArray[k]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int size1, size2;
+
+    printf("Enter size of array 1: ");
+    scanf("%d", &size1);
+
+    int array1[size1];
+    printf("Enter %d elements for array 1:\n", size1);
+    for (int i = 0; i < size1; i++) {
+        scanf("%d", &array1[i]);
+    }
+
+    printf("Enter size of array 2: ");
+    scanf("%d", &size2);
+
+    int array2[size2];
+    printf("Enter %d elements for array 2:\n", size2);
+    for (int i = 0; i < size2; i++) {
+        scanf("%d", &array2[i]);
+    }
+
+    mergeArrays(array1, size1, array2, size2);
+
+    return 0;
+}
