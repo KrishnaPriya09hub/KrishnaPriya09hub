@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int removeDuplicates(int array[], int size) {
+    int temp[size];
+    int j = 0;
+
+    // Remove duplicates
+    for (int i = 0; i < size; i++) {
+        int flag = 0;
+        for (int k = 0; k < j; k++) {
+            if (array[i] == temp[k]) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0) {
+            temp[j++] = array[i];
+        }
+    }
+
+    // Copy unique elements back to original array
+    for (int i = 0; i < j; i++) {
+        array[i] = temp[i];
+    }
+
+    return j; // Return new size
+}
+
+int main() {
+    int size;
+    printf("Enter the number of elements: ");
+    scanf("%d", &size);
+
+    int array[size];
+    printf("Enter %d elements:\n", size);
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &array[i]);
+    }
+
+    int newSize = removeDuplicates(array, size);
+
+    printf("Array after removing duplicates: ");
+    for (int i = 0; i < newSize; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
