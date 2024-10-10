@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+void charFrequency(char str[]) {
+    int count[256] = {0}; // ASCII size
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        count[(int)str[i]]++;
+    }
+
+    printf("Character Frequency:\n");
+    for (int i = 0; i < 256; i++) {
+        if (count[i] > 0) {
+            printf("%c : %d\n", (char)i, count[i]);
+        }
+    }
+}
+
+int main() {
+    char str[100];
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    charFrequency(str);
+
+    return 0;
+}
