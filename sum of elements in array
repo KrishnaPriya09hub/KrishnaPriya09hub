@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+// Function to calculate the sum of array elements
+int calculateSum(int array[], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += array[i];
+    }
+    return sum;
+}
+
+int main() {
+    int size;
+
+    // Ask user for array size
+    printf("Enter the number of elements: ");
+    scanf("%d", &size);
+
+    int array[size];
+
+    // Ask user for array elements
+    printf("Enter %d elements:\n", size);
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &array[i]);
+    }
+
+    // Calculate and print the sum
+    int sum = calculateSum(array, size);
+    printf("Sum of elements: %d\n", sum);
+
+    return 0;
+}
