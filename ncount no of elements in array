@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    int size;
+
+    // Ask user for array size
+    printf("Enter the number of elements: ");
+    scanf("%d", &size);
+
+    int array[size];
+
+    // Ask user for array elements
+    printf("Enter %d elements:\n", size);
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &array[i]);
+    }
+
+    // Print array size
+    printf("Number of elements: %d\n", size);
+
+    return 0;
+}
