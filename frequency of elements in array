@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+void findFrequency(int array[], int size) {
+    int frequency[size];
+    int i, j, count;
+
+    // Initialize frequency array
+    for (i = 0; i < size; i++) {
+        frequency[i] = 0;
+    }
+
+    // Count frequency of each element
+    for (i = 0; i < size; i++) {
+        count = 0;
+        for (j = 0; j < size; j++) {
+            if (array[i] == array[j]) {
+                count++;
+            }
+        }
+        frequency[i] = count;
+    }
+
+    // Print frequency of each element
+    for (i = 0; i < size; i++) {
+        printf("Element %d: Frequency %d\n", array[i], frequency[i]);
+    }
+}
+
+int main() {
+    int size;
+    printf("Enter the number of elements: ");
+    scanf("%d", &size);
+
+    int array[size];
+    printf("Enter %d elements:\n", size);
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &array[i]);
+    }
+
+    findFrequency(array, size);
+
+    return 0;
+}
