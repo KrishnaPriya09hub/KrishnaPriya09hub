@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+// Define a structure to represent a complex number
+struct Complex {
+    int real;
+    int imag;
+};
+
+// Function to add two complex numbers
+struct Complex addComplex(struct Complex c1, struct Complex c2) {
+    struct Complex result;
+    result.real = c1.real + c2.real;
+    result.imag = c1.imag + c2.imag;
+    return result;
+}
+
+int main() {
+    // Declare two complex numbers
+    struct Complex c1 = {3, 4};
+    struct Complex c2 = {2, 5};
+
+    // Add the complex numbers
+    struct Complex sum = addComplex(c1, c2);
+
+    // Print the result
+    printf("Sum: %d + %di\n", sum.real, sum.imag);
+
+    return 0;
+}
