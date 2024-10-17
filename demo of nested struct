@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+// Define a structure for address
+struct Address {
+    char street[20];
+    char city[20];
+    char state[20];
+    int zip;
+};
+
+// Define a structure for student with nested address structure
+struct Student {
+    int rollNo;
+    char name[20];
+    struct Address address;
+};
+
+int main() {
+    // Declare a variable of type struct Student
+    struct Student s;
+
+    // Initialize the student's information
+    s.rollNo = 10;
+    strcpy(s.name, "John");
+    strcpy(s.address.street, "123 Main St");
+    strcpy(s.address.city, "Anytown");
+    strcpy(s.address.state, "CA");
+    s.address.zip = 12345;
+
+    // Display the student's information
+    printf("Roll No: %d\n", s.rollNo);
+    printf("Name: %s\n", s.name);
+    printf("Address:\n");
+    printf("%s\n", s.address.street);
+    printf("%s, %s %d\n", s.address.city, s.address.state, s.address.zip);
+
+    return 0;
+}
