@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+void add_matrices(int *mat1, int *mat2, int *result, int row, int col) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            *(result + i * col + j) = *(mat1 + i * col + j) + *(mat2 + i * col + j);
+        }
+    }
+}
+
+int main() {
+    int row = 2;
+    int col = 3;
+    int mat1[2][3] = {{1, 2, 3}, {4, 5, 6}};
+    int mat2[2][3] = {{7, 8, 9}, {10, 11, 12}};
+    int result[2][3];
+
+    add_matrices((int *)mat1, (int *)mat2, (int *)result, row, col);
+
+    printf("Resultant matrix:\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            printf("%d ", result[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
