@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+// Define a structure
+struct Student {
+    int rollNo;
+    char name[20];
+    int age;
+};
+
+int main() {
+    // Declare a structure variable
+    struct Student s;
+
+    // Print the size of the structure
+    printf("Size of structure Student: %lu bytes\n", sizeof(s));
+
+    return 0;
+}
