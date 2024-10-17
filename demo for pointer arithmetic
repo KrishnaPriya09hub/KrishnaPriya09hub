@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+
+    printf("Pointer value: %p\n", ptr);
+    printf("Value at pointer: %d\n", *ptr);
+
+    // Increment pointer
+    ptr++;
+    printf("Pointer value after increment: %p\n", ptr);
+    printf("Value at pointer after increment: %d\n", *ptr);
+
+    // Decrement pointer
+    ptr--;
+    printf("Pointer value after decrement: %p\n", ptr);
+    printf("Value at pointer after decrement: %d\n", *ptr);
+
+    // Add integer to pointer
+    ptr = ptr + 2;
+    printf("Pointer value after addition: %p\n", ptr);
+    printf("Value at pointer after addition: %d\n", *ptr);
+
+    // Subtract integer from pointer
+    ptr = ptr - 1;
+    printf("Pointer value after subtraction: %p\n", ptr);
+    printf("Value at pointer after subtraction: %d\n", *ptr);
+
+    return 0;
+}
