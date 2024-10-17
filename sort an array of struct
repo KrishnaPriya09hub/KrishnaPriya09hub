@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+// Define a structure
+struct Student {
+    int rollNo;
+    char name[20];
+};
+
+// Function to compare two structures
+int compare(struct Student s1, struct Student s2) {
+    return s1.rollNo - s2.rollNo;
+}
+
+// Function to sort an array of structures
+void sort(struct Student arr[], int n) {
+    int i, j;
+    struct Student temp;
+    for (i = 0; i < n - 1; i++) {
+        for (j = i + 1; j < n; j++) {
+            if (compare(arr[i], arr[j]) > 0) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    // Declare an array of structures
+    struct Student arr[] = {
+        {10, "John"},
+        {5, "Alice"},
+        {8, "Bob"},
+        {15, "Eve"}
+    };
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    // Sort the array of structures
+    sort(arr, n);
+
+    // Print the sorted array
+    for (int i = 0; i < n; i++) {
+        printf("%d %s\n", arr[i].rollNo, arr[i].name);
+    }
+
+    return 0;
+}
