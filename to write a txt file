@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fp;
+    char text[] = "Hello, World! This is a test file.";
+
+    // Open the file in write mode
+    fp = fopen("example.txt", "w");
+
+    // Check if the file is opened successfully
+    if (fp == NULL) {
+        printf("Error opening file\n");
+        return 1;
+    }
+
+    // Write the text to the file
+    fprintf(fp, "%s", text);
+
+    // Close the file
+    fclose(fp);
+
+    return 0;
+}
