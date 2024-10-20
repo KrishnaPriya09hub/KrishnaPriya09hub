@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *file;
+    char c, content[100];
+
+    // Specify file name and content to append
+    printf("Enter file name: ");
+    scanf("%s", content);
+    file = fopen(content, "a");
+
+    // Check if file is opened successfully
+    if (file == NULL) {
+        printf("Error opening file.");
+        exit(1);
+    }
+
+    printf("Enter content to append: ");
+    scanf(" %[^\n]%*c", content);
+
+    // Append content to file
+    fprintf(file, "%s\n", content);
+
+    // Close file
+    fclose(file);
+
+    return 0;
+}
