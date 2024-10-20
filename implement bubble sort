@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+// Function to swap two elements
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// Function to implement bubble sort
+void bubbleSort(int array[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (array[j] > array[j + 1]) {
+                swap(&array[j], &array[j + 1]);
+            }
+        }
+    }
+}
+
+// Function to print the array
+void printArray(int array[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int array[] = {64, 34, 25, 12, 22, 11, 90};
+    int size = sizeof(array) / sizeof(array[0]);
+
+    printf("Original array: ");
+    printArray(array, size);
+
+    bubbleSort(array, size);
+
+    printf("Sorted array: ");
+    printArray(array, size);
+
+    return 0;
+}
