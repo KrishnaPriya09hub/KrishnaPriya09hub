@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *file1, *file2, *merged;
+    char filename1[100], filename2[100], mergedname[100];
+    char c;
+
+    printf("Enter first file name: ");
+    scanf("%s", filename1);
+    printf("Enter second file name: ");
+    scanf("%s", filename2);
+    printf("Enter merged file name: ");
+    scanf("%s", mergedname);
+
+    file1 = fopen(filename1, "r");
+    file2 = fopen(filename2, "r");
+    merged = fopen(mergedname, "w");
+
+    if (file1 == NULL || file2 == NULL || merged == NULL) {
+        printf("Error opening files.");
+        exit(1);
+    }
+
+    // Copy contents of first file to merged file
+    while ((c = fgetc(file1)) != EOF) {
+        fputc(c, merged);
+    }
+
+    // Copy contents of second file to merged file
+    while ((c = fgetc(file2)) != EOF) {
+        fputc(c, merged);
+    }
+
+    printf("Files merged successfully.\n");
+
+    fclose(file1);
+    fclose(file2);
+    fclose(merged);
+
+    return 0;
+}
+
