@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+void printPrimes(int start, int end) {
+    int i, j, flag;
+    for (i = start; i <= end; i++) {
+        flag = 1;
+        for (j = 2; j <= i/2; j++) {
+            if (i % j == 0) {
+                flag = 0;
+                break;
+            }
+        }
+        if (flag == 1 && i != 1)
+            printf("%d ", i);
+    }
+}
+
+int main() {
+    int start, end;
+    printf("Enter the start and end numbers: ");
+    scanf("%d %d", &start, &end);
+    printPrimes(start, end);
+    return 0;
+}
