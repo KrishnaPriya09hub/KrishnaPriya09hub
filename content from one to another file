@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *source, *target;
+    char c;
+
+    // Specify source and target file names
+    source = fopen("source.txt", "r");
+    target = fopen("target.txt", "w");
+
+    // Check if files are opened successfully
+    if (source == NULL || target == NULL) {
+        printf("Error opening files.");
+        exit(1);
+    }
+
+    // Copy contents from source to target
+    while ((c = fgetc(source)) != EOF) {
+        fputc(c, target);
+    }
+
+    // Close files
+    fclose(source);
+    fclose(target);
+
+    return 0;
+}
+
