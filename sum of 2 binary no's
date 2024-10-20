@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<string.h>
+
+void binarySum(char bin1[], char bin2[]) {
+    int len1 = strlen(bin1);
+    int len2 = strlen(bin2);
+    int maxLen = len1 > len2 ? len1 : len2;
+    int sum[maxLen + 1];
+    int carry = 0;
+    int i;
+
+    // Reverse both strings
+    strrev(bin1);
+    strrev(bin2);
+
+    // Perform binary addition
+    for (i = 0; i < maxLen; i++) {
+        int bit1 = i < len1 ? bin1[i] - '0' : 0;
+        int bit2 = i < len2 ? bin2[i] - '0' : 0;
+        sum[i] = (bit1 ^ bit2) ^ carry;
+        carry = (bit1 & bit2) | (bit1 & carry) | (bit2 & carry);
+    }
+
+    // If there's a remaining carry, add it to the sum
+    if (carry)
+        sum[maxLen] = carry;
+
+    // Print the sum
+    printf("Sum: ");
+    for (i = maxLen; i >= 0; i--)
+        printf("%d", sum[i]);
+}
+
+int main() {
+    char bin1[32], bin2[32];
+    printf("Enter first binary number: ");
+    scanf("%s", bin1);
+    printf("Enter second binary number: ");
+    scanf("%s", bin2);
+    binarySum(bin1, bin2);
+    return 0;
+}
