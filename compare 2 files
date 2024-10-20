@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *file1, *file2;
+    char filename1[100], filename2[100];
+    char c1, c2;
+    int mismatch = 0;
+
+    // Input file names
+    printf("Enter first file name: ");
+    scanf("%s", filename1);
+    printf("Enter second file name: ");
+    scanf("%s", filename2);
+
+    // Open files
+    file1 = fopen(filename1, "r");
+    file2 = fopen(filename2, "r");
+
+    // Check if files are opened successfully
+    if (file1 == NULL || file2 == NULL) {
+        printf("Error opening files.");
+        exit(1);
+    }
+
+    // Compare files
+    while ((c1 = fgetc(file1)) != EOF && (c2 = fgetc(file2)) != EOF) {
+        if (c1 != c2) {
+            mismatch = 1;
+            break;
+        }
+    }
+
+    // Check for size mismatch
+    if (c1 != c2) {
+        mismatch = 1;
+    }
+
+    // Print result
+    if (mismatch) {
+        printf("Files are different.\n");
+    } else {
+        printf("Files are identical.\n");
+    }
+
+    // Close files
+    fclose(file1);
+    fclose(file2);
+
+    return 0;
+}
